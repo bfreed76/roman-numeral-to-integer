@@ -19,7 +19,22 @@ function romanNumeral(string) {
     I: 1,
   };
 
+ let total = 0
+ let idx = 0
 
+ while (idx < string.length) {
+  const twoChar = string[idx] + (string[idx + 1] || '');
+
+  if (romans[twoChar] !== undefined) {
+    total += romans[twoChar];
+    idx += 2;
+  } else {
+    total += romans[string[idx]];
+    ++idx;
+  }
+}
+
+return total;
 
 }
 
